@@ -1,0 +1,25 @@
+<div class="row">
+  <h2 id="form-title">New Zen</h2>
+<%= simple_form_for @zen, url: new_zen_path do |f| %>
+  <% if @zen.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@zen.errors.count, "error") %> prohibited this zen from being saved:</h2>
+      <ul>
+      <% @zen.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :title, label:false, placeholder: "Title"%>
+    <%= f.input :photo, label: "Zen Photo" %>
+    <%= f.input :link, label:false, placeholder:"Link" %>
+    <%= f.input :description, as: :text , label:false, placeholder: "Content" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
