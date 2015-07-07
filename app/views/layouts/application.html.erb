@@ -7,6 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Zenterest", root_path, class: "navbar-brand" %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav"></ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if @current_user %>
+          <li><%=link_to "New Zen", new_zen_path %></li>
+          <li><%=link_to "Sign Out", sign_out_path, method: :delete  %></li>
+            </ul>
+          </li>
+          <% else %>
+          <li><%= link_to "Sign Up", sign_up_path %></li>
+          <li><%= link_to "Sign In", sign_in_path %></li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
   <% if notice %>
     <div class="alert alert-warning">
       <%= notice %>

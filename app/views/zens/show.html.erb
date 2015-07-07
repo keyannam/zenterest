@@ -1,6 +1,6 @@
 <h1><%= @zen.title %></h1>
 <p><%= @zen.description %></p>
-<p>Submitted by: <%= @zen.user.email %></p>
+<p>Submitted by: <%= @zen.current_user.email %></p>
 
 <%= link_to "Back", root_path %>
 <%= link_to "Delete", delete_zen_path, method: :delete, data: { confirm: "Are you sure?"} %>
