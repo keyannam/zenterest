@@ -1,3 +1,4 @@
 <% @zens.each do |zen| %>
+<%= link_to (image_tag zen.photo.url(:full)), zen %>
   <h2><%= link_to zen.title, zen %></h2>
 <% end %>

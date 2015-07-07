@@ -1,11 +1,11 @@
 class ZensController < ApplicationController
   before_action do
     @current_user = User.find_by id: session[:user_id]
-      if @current_user.nil?
-        redirect_to sign_in_path
-      end
-    end
-
+     if @current_user.nil?
+       redirect_to login_path
+     end
+ end
+ 
   def index
     @zens = Zen.all.order("created_at DESC")
   end
@@ -16,7 +16,7 @@ class ZensController < ApplicationController
 
   def create
     @zen = Zen.new(zen_params)
-    @zen = @current_user
+    # @zen.user = @current_user
 
       if @zen.save
         redirect_to @zen, notice: "Successfully created new Zen!"
@@ -26,6 +26,7 @@ class ZensController < ApplicationController
   end
 
   def show
+    @zen = Zen.find(params[:id])
   end
 
   def destroy
