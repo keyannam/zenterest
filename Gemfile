@@ -24,6 +24,8 @@ gem 'carrierwave-aws'
 
 gem "mini_magick"
 
+gem 'masonry-rails'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -1,7 +1,23 @@
-<%= image_tag @zen.photo.url(:full) %>
-<h1><%= @zen.title %></h1>
-<p><%= @zen.description %></p>
-<p>Submitted by: <%= @current_user.email %></p>
-
-<%= link_to "Back", root_path %>
-<%= link_to "Delete", delete_zen_path, method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="box panel panel-default">
+      <div class="panel-heading">
+        <%= image_tag @zen.photo.url(:full) %>
+      </div>
+      <div class="panel-body"
+        <%= image_tag @zen.photo.url(:full) %>
+          <h1><%= @zen.title %></h1>
+          <p><%= @zen.description %></p>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+              <div class="col-md-6">
+              <h4>Zenned by: <%= @current_user.username %></h4>
+            </div>
+            <div class="col-md-6">
+              <div class="btn-group" role="pull-right">
+                <%= link_to "Delete", delete_zen_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default" %>
+              </div>
+    </div>
+  </div>
+</div>

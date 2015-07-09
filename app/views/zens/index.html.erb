@@ -1,4 +1,12 @@
-<% @zens.each do |zen| %>
-<%= link_to (image_tag zen.photo.url(:full)), zen %>
-  <h2><%= link_to zen.title, zen %></h2>
-<% end %>
+<div id="masonry-container" class="transitions-enabled">
+  <% @zens.each do |zen| %>
+    <div class="box panel panel-default">
+			<%= link_to (image_tag zen.photo.url(:full)), zen %>
+			<div class="panel-body">
+				<h2><%= link_to zen.title, zen %></h2>
+        <p><%= zen.user %>
+          <h4>Zenned by: <%= @current_user.username %></h4>
+      </div>
+		</div>
+  <% end %>
+</div>

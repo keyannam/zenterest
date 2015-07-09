@@ -5,7 +5,7 @@ class ZensController < ApplicationController
        redirect_to login_path
      end
  end
- 
+
   def index
     @zens = Zen.all.order("created_at DESC")
   end
@@ -30,9 +30,12 @@ class ZensController < ApplicationController
   end
 
   def destroy
-    @zen.destroy
-    redirect_to root_path
-  end
+    @zen = Zen.find(params[:id])
+        if @zen.present?
+          @zen.destroy
+          redirect_to root_path
+        end
+      end
 
   private
 
