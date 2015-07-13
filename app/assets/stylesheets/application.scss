@@ -43,7 +43,23 @@
 }
 
 body {
-	background: #E9E9E9;
+	background: url('https://static.pexels.com/photos/446/sea-nature-sky-sunset.jpg') no-repeat;
+  background-size: cover;
+}
+
+.welcome {
+	.h2 {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 40;
+  color: #ffffff
+	}
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  background-color: #1b1c5c;
+	border-style: double;
+  border-color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
