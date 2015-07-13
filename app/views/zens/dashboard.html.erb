@@ -4,8 +4,7 @@
 			<%= link_to (image_tag zen.photo.url(:full)), zen %>
 			<div class="panel-body">
 				<h2><%= link_to zen.title, zen %></h2>
-        <p><%= zen.user %>
-          <h4>Zenned by: <%= @current_user.username %></h4>
+          <h4>Zenned by: <%= zen.user.username %></h4>
       </div>
 		</div>
   <% end %>

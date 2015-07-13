@@ -11,16 +11,15 @@ class SessionController < ApplicationController
     user = User.find_by email: email
       if (user) && (user.authenticate password)
         session[:user_id] = user.id
-        redirect_to user
+        redirect_to dashboard_path
       else
         flash.now[:danger] = "Please try again."
-        render :new
       end
   end
 
   def destroy
     session.delete :user_id
-    redirect_to root_path
+    redirect_to root_path, notice: "You're all signed out!"
   end
 
 end

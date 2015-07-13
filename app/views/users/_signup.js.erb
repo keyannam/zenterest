@@ -1,15 +1,17 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-<h1 div class="text-center">Sign Up</h1><br/>
-
-<%= simple_form_for @user do |f| %>
+<h2 div class="text-center">Create An Account</h2><br/>
+<%= simple_form_for @user, remote: true do |f| %>
     <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email Address", input_html: {class: "form-control"} %>
     <%= f.input :username, required: true, autofocus: true, label: false, placeholder: "Username", input_html: {class: "form-control"} %>
     <%= f.input :password, required: true, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
     <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
     <%= f.button :submit, "Sign Up", class: "btn btn-primary btn-block" %>
     <% end %>
-
-<%= link_to "Already A Member? Sign In.", sign_in_path %>
+<br>
+<%= link_to "Already A Member? Sign In.", sign_in_path, remote: true %>
   </div>
+</div
+</div>
+</div>
 </div>

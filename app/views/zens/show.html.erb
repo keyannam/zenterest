@@ -6,6 +6,7 @@
       </div>
       <div class="panel-body"
         <%= image_tag @zen.photo.url(:full) %>
+        <p>Found On: <%= link_to @zen.link %></p>
           <h1><%= @zen.title %></h1>
           <p><%= @zen.description %></p>
         </div>

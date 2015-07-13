@@ -12,6 +12,7 @@
 //
 // = require jquery
 // = require jquery_ujs
-//= require masonry/jquery.masonry
-// = bootstrap-sprockets
+// = require jquery.remotipart
+// = require masonry/jquery.masonry
+// = require bootstrap
 // = require turbolinks

@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if @current_user.present? %>
   <nav class="navbar navbar-default">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Zenterest", root_path, class: "navbar-brand" %>
+        <%= link_to "Zenterest", dashboard_path, class: "navbar-brand" %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,19 +26,14 @@
         <ul class="nav navbar-nav"></ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <% if @current_user %>
           <li><%=link_to "New Zen", new_zen_path %></li>
           <li><%=link_to "Sign Out", sign_out_path, method: :delete  %></li>
             </ul>
           </li>
-          <% else %>
-          <li><%= link_to "Sign Up", sign_up_path %></li>
-          <li><%= link_to "Sign In", sign_in_path %></li>
-          <% end %>
-        </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <% end %>
 
   <% if notice %>
     <div class="alert alert-warning">
@@ -49,12 +45,27 @@
     <div class="alert alert-danger">
       <%= alert %>
     </div>
-  <% end %>
+<% end %>
 
   <div class="container">
-    
+
 <%= yield %>
   </div>
+
+  <div class="modal fade customize-modal" id="cool-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="text-center", class="modal-title">Welcome To Zenterest</h2>
+      </div>
+      <div class="modal-body">
+        MODAL BODY
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 </body>
 </html>

@@ -26,6 +26,8 @@ gem "mini_magick"
 
 gem 'masonry-rails'
 
+gem 'remotipart', '~> 1.2'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

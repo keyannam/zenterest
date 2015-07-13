@@ -1,12 +1,13 @@
 class ZensController < ApplicationController
+
   before_action do
     @current_user = User.find_by id: session[:user_id]
      if @current_user.nil?
-       redirect_to login_path
+       redirect_to sign_in_path
      end
  end
 
-  def index
+  def dashboard
     @zens = Zen.all.order("created_at DESC")
   end
 
@@ -16,13 +17,14 @@ class ZensController < ApplicationController
 
   def create
     @zen = Zen.new(zen_params)
-    # @zen.user = @current_user
-
+    @zen.user = @current_user
       if @zen.save
-        redirect_to @zen, notice: "Successfully created new Zen!"
+        redirect_to dashboard_path, notice: "You just zenned!"
       else
-        render 'new'
+        render :new_zen_path, notice: "OOOPS, something went wrong, please try again."
       end
+
+    @zens = Zen.all.order("created_at DESC")
   end
 
   def show
@@ -31,11 +33,9 @@ class ZensController < ApplicationController
 
   def destroy
     @zen = Zen.find(params[:id])
-        if @zen.present?
-          @zen.destroy
-          redirect_to root_path
-        end
-      end
+    @zen.destroy
+    redirect_to dashboard_path
+  end
 
   private
 

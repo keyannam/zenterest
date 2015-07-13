@@ -1,0 +1,6 @@
+<% if @user.save %>
+  <% session[:current_user] = @user.id %>
+  window.location = "/";
+<% else %>
+  $('#cool-modal .modal-body').html("<%= j render partial: 'signup' %>");
+<% end %>
